@@ -40,8 +40,8 @@ const Languages = () => {
 
         <select className='input'>
           {
-            result?.data?.data.map((eachLanguage: any) => (
-              <option value="Text">
+            result?.data?.data.map((eachLanguage: any, index: any) => (
+              <option key={index}>
                 {eachLanguage.name}
                 {eachLanguage.code}
                 {eachLanguage.countryFlag}

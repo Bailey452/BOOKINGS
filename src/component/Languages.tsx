@@ -52,14 +52,14 @@ const Languages = () => {
       </div>
 
       <div className='phrase'>
-        <h1 className='praseH'>Common Travel Phrases</h1>
+        <h1 className='phraseH'>Common Travel Phrases</h1>
 
-        <div>
-          <p>Hello: <span>Hola (Spanish), Bonjour (French)</span></p>
-          <p>Thank you: <span>Gracias (Spanish), Merci (French)</span></p>
-          <p>Excuse me: <span>Perdón (Spanish), Excusez-moi (French)</span></p>
-          <p>Where is...?: <span>¿Dónde está...? (Spanish), Où est...? (French)</span></p>
-          <p>How much?: <span>¿Cuánto cuesta? (Spanish), Combien? (French)</span></p>
+        <div className='phraseP'>
+          <p><span className='span'>Hello:</span> Hola (Spanish), Bonjour (French)</p>
+          <p><span className='span'>Thank you:</span> Gracias (Spanish), Merci (French)</p>
+          <p><span className='span'>Excuse me:</span> Perdón (Spanish), Excusez-moi (French)</p>
+          <p><span className='span'>Where is...?:</span> ¿Dónde está...? (Spanish), Où est...? (French)</p>
+          <p><span className='span'>How much?:</span> ¿Cuánto cuesta? (Spanish), Combien? (French)</p>
         </div>
       </div>
 

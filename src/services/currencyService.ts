@@ -8,6 +8,12 @@ export const getCurrency = async () => {
     return Currency
     
 }
+export const getCurrent = async () => {
+  const Current = await axiosInstance.get("/getCurrency")
+  // console.log(data);
+  return Current
+    
+}
 
 
 

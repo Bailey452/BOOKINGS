@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import { getCurrency } from '@/services/currencyService'
-import { getCurrent } from '@/services/currencyService'
 import { BsCurrencyDollar } from "react-icons/bs";
 import { useState, useEffect } from 'react';
 import { FcCurrencyExchange } from "react-icons/fc";
@@ -9,7 +8,7 @@ import { FcCurrencyExchange } from "react-icons/fc";
 const Currency = () => {
   const [result, setResult] = useState<any>([])
   const [loading, setLoading] = useState(false)
-  const [amount, setAmount] = useState(0)
+  const [amount, setAmount] = useState<Number | any>(0)    
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(e.target.value)
@@ -18,23 +17,12 @@ const Currency = () => {
   useEffect(() => {
     const loadDataOnPageLoad = async () => {
       const Currency = await getCurrency()
-      setResult(Currency)
+      setResult(Currency?.data)
     }
 
     loadDataOnPageLoad();
   }, [])
   console.log(result);
-
-  useEffect(() => {
-    const loadDataOnPageLoad = async () => {
-      const Current = await getCurrent()
-      setResult(Current)
-    }
-
-    loadDataOnPageLoad();
-  }, [])
-  console.log(result);
-
 
   return (
     <div className='lang'>
@@ -65,7 +53,7 @@ const Currency = () => {
 
           <select className='input inp'>
             <option>
-              {result?.data?.data?.base_currency}
+              {result?.base_currency}
             </option>
           </select>
         </div>

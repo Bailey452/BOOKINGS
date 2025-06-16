@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import { getLanguages } from '@/services/languageService'
-import { IoIosArrowDown } from "react-icons/io";
 import { IoLanguage } from "react-icons/io5";
 import { useState, useEffect } from 'react';
 
@@ -16,15 +15,15 @@ const Languages = () => {
     setResult(data)
   }
 
-  useEffect(() => {
-    const loadDataOnPageLoad = async () => {
-      const data = await getLanguages()
-      setResult(data)
-    }
+  // useEffect(() => {
+  //   const loadDataOnPageLoad = async () => {
+  //     const data = await getLanguages()
+  //     setResult(data)
+  //   }
 
-    loadDataOnPageLoad();
-  }, [])
-  console.log(result);
+  //   loadDataOnPageLoad();
+  // }, [])
+  // console.log(result);
 
 
   return (
@@ -40,7 +39,7 @@ const Languages = () => {
 
         <select className='input'>
           {
-            result?.data?.data.map((eachLanguage: any, index: any) => (
+            result?.data?.data.map((eachLanguage: any, index: any) => (  
               <option key={index}>
                 {eachLanguage.name}
                 {eachLanguage.code}
@@ -69,11 +68,3 @@ const Languages = () => {
 }
 
 export default Languages
-
-
-
-
-
-
-
-// what short circuiting is and what it's used for

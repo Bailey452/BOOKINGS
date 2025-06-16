@@ -7,8 +7,11 @@ import { FcCurrencyExchange } from "react-icons/fc";
 
 const Currency = () => {
   const [result, setResult] = useState<any>([])
-  const [loading, setLoading] = useState(false)
-  const [amount, setAmount] = useState<Number | any>(0)    
+  // const [loading, setLoading] = useState(false)
+  const [amount, setAmount] = useState<Number | any>(0)
+  const [fromCurrency, setFromCurrency] = useState<string>('')
+  const [toCurrency, setToCurrency] = useState<string>('')
+  const [convertedAmount, setConvertedAmount] = useState<Number | any>(0)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(e.target.value)
@@ -23,6 +26,20 @@ const Currency = () => {
     loadDataOnPageLoad();
   }, [])
   console.log(result);
+
+  // handle convertion logic
+  useEffect(() => {
+    if (amount && toCurrency && result?.exchange_rates) {
+      const toRate = result.exchange_rates.find((item: any) =>
+        item.currency === toCurrency
+      )
+
+      if (toRate) {
+        const converted = parseFloat(amount) * toRate.exchange_rate_buy
+        setConvertedAmount(converted.toFixed(2))
+      }
+    }
+  }, [amount, toCurrency, result])
 
   return (
     <div className='lang'>
@@ -51,8 +68,11 @@ const Currency = () => {
         <div className='rate'>
           <h1>From</h1>
 
-          <select className='input inp'>
-            <option>
+          <select
+            value={fromCurrency}
+            onChange={(e) => setFromCurrency(e.target.value)}
+            className='input inp'>
+            <option value={result?.base_currency}>
               {result?.base_currency}
             </option>
           </select>
@@ -61,10 +81,13 @@ const Currency = () => {
         <div className='rate'>
           <h1>To</h1>
 
-          <select className='input inp'>
+          <select
+            value={toCurrency}
+            onChange={(e) => setToCurrency(e.target.value)}
+            className='input inp'>
             {
-              result?.data?.data?.exchange_rates?.map((eachCurrency: any, index: any) => (
-                <option key={index}>
+              result?.exchange_rates?.map((eachCurrency: any, index: any) => (
+                <option key={index} value={eachCurrency.currency}>
                   {eachCurrency.currency}, {eachCurrency.exchange_rate_buy}
                 </option>
               ))
@@ -75,11 +98,13 @@ const Currency = () => {
       </div>
 
       <div className='exchange'>
-        <p className='font-light text-gray-600'>Exchange Rate</p>
+        <p className='font-light text-gray-700'>Exchange Rate</p>
 
         <div className='flex justify-between mt-3'>
-          <p className='font-bold'>{amount} USD =</p>
-          <p><span className='span'>Thank you:</span></p>
+          <p className='font-bold'>{amount} {fromCurrency}=</p>
+          <p>
+            {convertedAmount && `${convertedAmount} ${toCurrency}`}
+            <span className='span'>Thank you:</span></p>
         </div>
       </div>
 

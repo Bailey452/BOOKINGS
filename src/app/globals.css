@@ -4,6 +4,7 @@ body {
   padding: none;
   margin: none;
   overflow-x: hidden;
+  /* overflow-y: hidden; Woke up as unloved heiress. 3 CEO brothers could hear her thoughts, got tamed, spoiled her */
   position: relative;
 }
 
@@ -128,12 +129,12 @@ body {
   margin-left: .2rem;
 }
 
-.exc{
+.exc {
   margin-left: .6rem;
   margin-top: 2rem;
 }
 
-.exchange{
+.exchange {
   height: 25%;
   margin-top: 2rem;
   padding: 1rem;
@@ -206,4 +207,73 @@ body {
   width: 30vw;
   height: 7vh;
   border-radius: 10px;
+}
+
+.Form {
+  width: 100vw;
+  height: 45vh;
+  border: 2px solid black;
+  padding: 22px;
+}
+
+.formBtn {
+  width: 100%;
+  height: 20%;
+  /* border: 2px solid red; */
+  background-color: #f1f5f9;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hotel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24.5%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+.hotel:hover {
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  width: 100%;
+  height: 65%;
+  margin-top: 2rem;
+  /* border: 2px solid blue; */
+}
+
+.for{
+  display: flex;
+  justify-content: space-between;
+  /* border: 2px solid red; */
+  align-items: center;
+  width: 96.5vw;
+}
+
+.forminput{
+  border: 2px solid rgb(187, 187, 187);
+  width: 20vw;
+  height: 7vh;
+  border-radius: 10px;
+}
+
+.forinput{
+  border: 2px solid rgb(187, 187, 187);
+  width: 30vw;
+  height: 7vh;
+  border-radius: 10px;
+}
+
+.btn2{
+  width: 8%;
+  height: 7vh;
+  border-radius: 10px;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: .9rem;
 }

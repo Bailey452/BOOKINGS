@@ -101,10 +101,8 @@ const Currency = () => {
         <p className='font-light text-gray-700'>Exchange Rate</p>
 
         <div className='flex justify-between mt-3'>
-          <p className='font-bold'>{amount} {fromCurrency}=</p>
-          <p>
-            {convertedAmount && `${convertedAmount} ${toCurrency}`}
-            <span className='span'>Thank you:</span></p>
+          <p className='font-normal'>{amount} {fromCurrency}=</p>
+          <p>{convertedAmount && `${convertedAmount} ${toCurrency}`}</p>
         </div>
       </div>
 
@@ -114,6 +112,3 @@ const Currency = () => {
 }
 
 export default Currency
-
-
-// what short circuiting is and what it's used for

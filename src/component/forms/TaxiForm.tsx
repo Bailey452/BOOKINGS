@@ -1,6 +1,6 @@
 import React from 'react'
 
-const HotelForms = () => {
+const TaxiForms = () => {
   return (
     <div>
       <form action="" className='for'>
@@ -47,4 +47,4 @@ const HotelForms = () => {
   )
 }
 
-export default HotelForms
+export default TaxiForms

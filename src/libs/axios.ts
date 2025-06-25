@@ -4,7 +4,7 @@ import axios from "axios";
 const axiosInstance = axios.create({
     baseURL : process.env.NEXT_PUBLIC_API,
     headers : {
-    'x-rapidapi-key': 'fa99f84d0fmshc790d2825faa5e0p193e96jsn34b0531cef93',
+    'x-rapidapi-key': 'd6e41aabe5msh6cfe839bc04e30bp126b15jsnea04727e0332',
     'x-rapidapi-host': 'booking-com.p.rapidapi.com'
     }
 })

@@ -1,6 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getFlight } from '@/services/flightService' 
+import Link from 'next/link' 
 
 const FlightForms = () => {
+
+  const [ flight, setFlight ] = useState<any>([]);
+
+  useEffect(() => {
+    const searchFlight = async () => {
+      try {
+        const flight = await getFlight();
+        setFlight(flight);
+      } catch (error) {
+        console.error("Error fetching flight data:", error); 
+      }
+    }
+    searchFlight();
+  }, [])   
+
+  console.log(flight?.data);
+
+
+
   return (
     <div>
       <form action="" className='for'>
@@ -53,7 +74,9 @@ const FlightForms = () => {
       </form>
 
       <button className='bg-[#8b5cf6] btn2'>
-        Search Flight
+        <Link href={`/flight/${flight?.data}`}>    
+         Search Flight
+        </Link>
       </button>
     </div>
   )
